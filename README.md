@@ -5,7 +5,7 @@
 [![Build Status](https://app.travis-ci.com/blueshen/tantivy-ik.svg?branch=main)](https://app.travis-ci.com/github/blueshen/tantivy-ik)
 
 [![GitHub forks](https://img.shields.io/github/forks/blueshen/tantivy-ik.svg?style=social&label=Fork)](https://github.com/blueshen/tantivy-ik/network/members)
-[![GitHub stars](https://img.shields.io/github/stars/blueshen/ik-rs.svg?style=social&label=Star)](https://github.com/blueshen/tantivy-ik/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/blueshen/tantivy-ik.svg?style=social&label=Star)](https://github.com/blueshen/tantivy-ik/stargazers)
 <!-- /Badges section end. -->
 
 # tantivy-ik
