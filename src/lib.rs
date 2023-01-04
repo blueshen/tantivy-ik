@@ -52,7 +52,7 @@ impl Tokenizer for IkTokenizer {
             tokens.push(Token {
                 offset_from: indices[token.get_begin_position()].0,
                 offset_to: indices[token.get_end_position()].0,
-                position: token.get_begin(),
+                position: token.get_begin_position(),
                 text: String::from(
                     &text[(indices[token.get_begin_position()].0)
                         ..(indices[token.get_end_position()].0)],
