@@ -275,10 +275,11 @@ checksum = "e9025058dae765dee5070ec375f591e2ba14638c63feff74f13805a72e523163"
 
 [[package]]
 name = "ik-rs"
-version = "0.3.2"
+version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "76410fb1a85e376490ef3a961faba603a6b76e4b9d8e26a1f07a8fc20b9fced1"
+checksum = "790161528eadc15bbbebadb6bbc9b214e1043b5da1c7c1af0f59c3d4c070f1ab"
 dependencies = [
+ "log",
  "once_cell",
  "serde",
  "serde_yaml",
@@ -816,7 +817,7 @@ dependencies = [
 
 [[package]]
 name = "tantivy-ik"
-version = "0.3.2"
+version = "0.3.3"
 dependencies = [
  "ik-rs",
  "once_cell",
