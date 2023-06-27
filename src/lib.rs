@@ -50,14 +50,13 @@ impl Tokenizer for IkTokenizer {
         let mut tokens = Vec::new();
         for token in orig_tokens.iter() {
             tokens.push(Token {
-                offset_from: indices[token.get_begin_position()].0,
-                offset_to: indices[token.get_end_position()].0,
-                position: token.get_begin_position(),
+                offset_from: indices[token.begin_pos()].0,
+                offset_to: indices[token.end_pos()].0,
+                position: token.begin_pos(),
                 text: String::from(
-                    &text[(indices[token.get_begin_position()].0)
-                        ..(indices[token.get_end_position()].0)],
+                    &text[(indices[token.begin_pos()].0)..(indices[token.end_pos()].0)],
                 ),
-                position_length: token.get_length(),
+                position_length: token.len(),
             });
         }
         BoxTokenStream::from(IkTokenStream { tokens, index: 0 })
