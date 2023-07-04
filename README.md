@@ -2,7 +2,7 @@
 [![Crates.io](https://img.shields.io/badge/crates.io-0.5.0-green)](https://crates.io/crates/tantivy-ik)
 [![License](https://img.shields.io/badge/license-LGPL--2.1-blue)](./LICENSE)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/blueshen/tantivy-ik/releases)
-[![Build Status](https://app.travis-ci.com/blueshen/tantivy-ik.svg?branch=main)](https://app.travis-ci.com/github/blueshen/tantivy-ik)
+[![Rust](https://github.com/blueshen/tantivy-ik/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/blueshen/tantivy-ik/actions/workflows/rust.yml)
 
 [![GitHub forks](https://img.shields.io/github/forks/blueshen/tantivy-ik.svg?style=social&label=Fork)](https://github.com/blueshen/tantivy-ik/network/members)
 [![GitHub stars](https://img.shields.io/github/stars/blueshen/tantivy-ik.svg?style=social&label=Star)](https://github.com/blueshen/tantivy-ik/stargazers)
