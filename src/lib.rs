@@ -46,7 +46,7 @@ impl Tokenizer for IkTokenizer {
     fn token_stream<'a>(&self, text: &'a str) -> BoxTokenStream<'a> {
         let mut indices = text.char_indices().collect::<Vec<_>>();
         indices.push((text.len(), '\0'));
-        let orig_tokens = GLOBAL_IK.lock().unwrap().tokenize(text, self.mode);
+        let orig_tokens = GLOBAL_IK.lock().unwrap().tokenize(text, self.mode.clone());
         let mut tokens = Vec::new();
         for token in orig_tokens.iter() {
             tokens.push(Token {
