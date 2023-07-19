@@ -1,7 +1,7 @@
 use ik_rs::core::ik_segmenter::{IKSegmenter, TokenMode};
 use once_cell::sync::Lazy;
 use std::sync::Mutex;
-use tantivy::tokenizer::{BoxTokenStream, Token, TokenStream, Tokenizer};
+use tantivy::tokenizer::{Token, TokenStream, Tokenizer};
 
 pub static GLOBAL_IK: Lazy<Mutex<IKSegmenter>> = Lazy::new(|| {
     let ik = IKSegmenter::new();
@@ -43,7 +43,8 @@ impl IkTokenizer {
 }
 
 impl Tokenizer for IkTokenizer {
-    fn token_stream<'a>(&self, text: &'a str) -> BoxTokenStream<'a> {
+    type TokenStream<'a> = IkTokenStream;
+    fn token_stream<'a>(&mut self, text: &'a str) -> Self::TokenStream<'a> {
         let mut indices = text.char_indices().collect::<Vec<_>>();
         indices.push((text.len(), '\0'));
         let orig_tokens = GLOBAL_IK.lock().unwrap().tokenize(text, self.mode.clone());
@@ -59,7 +60,7 @@ impl Tokenizer for IkTokenizer {
                 position_length: token.len(),
             });
         }
-        BoxTokenStream::from(IkTokenStream { tokens, index: 0 })
+        IkTokenStream { tokens, index: 0 }
     }
 }
 
@@ -70,7 +71,7 @@ mod tests {
     #[test]
     fn tantivy_ik_works() {
         use tantivy::tokenizer::*;
-        let tokenizer = crate::IkTokenizer::new(TokenMode::SEARCH);
+        let mut tokenizer = crate::IkTokenizer::new(TokenMode::SEARCH);
         let mut token_stream = tokenizer.token_stream(
             "张华考上了北京大学；李萍进了中等技术学校；我在百货公司当售货员：我们都有光明的前途",
         );
