@@ -1,11 +1,11 @@
 use ik_rs::core::ik_segmenter::{IKSegmenter, TokenMode};
 use once_cell::sync::Lazy;
-use std::sync::Mutex;
+use std::sync::RwLock;
 use tantivy::tokenizer::{Token, TokenStream, Tokenizer};
 
-pub static GLOBAL_IK: Lazy<Mutex<IKSegmenter>> = Lazy::new(|| {
+pub static GLOBAL_IK: Lazy<RwLock<IKSegmenter>> = Lazy::new(|| {
     let ik = IKSegmenter::new();
-    Mutex::new(ik)
+    RwLock::new(ik)
 });
 
 #[derive(Clone)]
@@ -47,7 +47,7 @@ impl Tokenizer for IkTokenizer {
     fn token_stream<'a>(&mut self, text: &'a str) -> Self::TokenStream<'a> {
         let mut indices = text.char_indices().collect::<Vec<_>>();
         indices.push((text.len(), '\0'));
-        let orig_tokens = GLOBAL_IK.lock().unwrap().tokenize(text, self.mode.clone());
+        let orig_tokens = GLOBAL_IK.read().map_or(vec![],|seg|seg.tokenize(text, self.mode.clone()));
         let mut tokens = Vec::new();
         for token in orig_tokens.iter() {
             tokens.push(Token {
