@@ -17,7 +17,7 @@
 Cargo.toml
 ```toml
 [dependencies]
-tantivy-ik = "0.6.0"
+tantivy-ik = "0.6.1"
 ```
 
 ```rust
