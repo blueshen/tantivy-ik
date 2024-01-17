@@ -1,5 +1,5 @@
 <!-- Badges section here. -->
-[![Crates.io](https://img.shields.io/badge/crates.io-0.6.2-green)](https://crates.io/crates/tantivy-ik)
+[![Crates.io](https://img.shields.io/badge/crates.io-0.7.0-green)](https://crates.io/crates/tantivy-ik)
 [![License](https://img.shields.io/badge/license-LGPL--2.1-blue)](./LICENSE)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/blueshen/tantivy-ik/releases)
 [![Rust](https://github.com/blueshen/tantivy-ik/actions/workflows/rust.yml/badge.svg?branch=main)](https://github.com/blueshen/tantivy-ik/actions/workflows/rust.yml)
@@ -17,7 +17,7 @@
 Cargo.toml
 ```toml
 [dependencies]
-tantivy-ik = "0.6.2"
+tantivy-ik = "0.7.0"
 ```
 
 ```rust

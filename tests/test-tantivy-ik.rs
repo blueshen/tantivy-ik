@@ -4,6 +4,7 @@ mod tests {
     use tantivy::Index;
     use tantivy_ik::IkTokenizer;
 
+
     #[test]
     fn it_works() {
         let mut schema_builder = Schema::builder();
