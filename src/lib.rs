@@ -10,7 +10,7 @@ cfg_if::cfg_if! {
     }
 }
 
-use tantivy::tokenizer::{Token, TokenStream, Tokenizer};
+use tantivy_tokenizer_api::{Token, TokenStream, Tokenizer};
 
 pub static GLOBAL_IK: Lazy<RwLock<IKSegmenter>> = Lazy::new(|| {
     let ik = IKSegmenter::new();
